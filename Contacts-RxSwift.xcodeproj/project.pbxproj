@@ -58,6 +58,9 @@
 		AF605A5629CD9846007EB0FA /* Contacts-RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				AF605A7029CD98E2007EB0FA /* ViewController */,
+				AF605A6F29CD98D8007EB0FA /* View */,
+				AF605A6E29CD98D0007EB0FA /* Model */,
 				AF605A5729CD9846007EB0FA /* AppDelegate.swift */,
 				AF605A5929CD9846007EB0FA /* SceneDelegate.swift */,
 				AF605A5B29CD9846007EB0FA /* ViewController.swift */,
@@ -68,6 +71,27 @@
 				AF605A6029CD9846007EB0FA /* Contacts_RxSwift.xcdatamodeld */,
 			);
 			path = "Contacts-RxSwift";
+			sourceTree = "<group>";
+		};
+		AF605A6E29CD98D0007EB0FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AF605A6F29CD98D8007EB0FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AF605A7029CD98E2007EB0FA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
