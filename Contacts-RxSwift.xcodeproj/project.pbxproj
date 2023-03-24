@@ -63,7 +63,6 @@
 				AF605A6E29CD98D0007EB0FA /* Model */,
 				AF605A5729CD9846007EB0FA /* AppDelegate.swift */,
 				AF605A5929CD9846007EB0FA /* SceneDelegate.swift */,
-				AF605A5B29CD9846007EB0FA /* ViewController.swift */,
 				AF605A5D29CD9846007EB0FA /* Main.storyboard */,
 				AF605A6329CD9847007EB0FA /* Assets.xcassets */,
 				AF605A6529CD9847007EB0FA /* LaunchScreen.storyboard */,
@@ -90,6 +89,7 @@
 		AF605A7029CD98E2007EB0FA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AF605A5B29CD9846007EB0FA /* ViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
