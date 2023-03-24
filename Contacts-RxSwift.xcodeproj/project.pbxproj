@@ -17,6 +17,7 @@
 		AF605A6229CD9846007EB0FA /* Contacts_RxSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF605A6029CD9846007EB0FA /* Contacts_RxSwift.xcdatamodeld */; };
 		AF605A6429CD9847007EB0FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF605A6329CD9847007EB0FA /* Assets.xcassets */; };
 		AF605A6729CD9847007EB0FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF605A6529CD9847007EB0FA /* LaunchScreen.storyboard */; };
+		AF605A7229CDC5F4007EB0FA /* CreateContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF605A7129CDC5F4007EB0FA /* CreateContactViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		AF605A6329CD9847007EB0FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF605A6629CD9847007EB0FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF605A6829CD9847007EB0FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF605A7129CDC5F4007EB0FA /* CreateContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				AF605A5B29CD9846007EB0FA /* ViewController.swift */,
+				AF605A7129CDC5F4007EB0FA /* CreateContactViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DA387C429CD9C5C00EB334D /* DetailModel.swift in Sources */,
+				AF605A7229CDC5F4007EB0FA /* CreateContactViewController.swift in Sources */,
 				1DA387C229CD9C4A00EB334D /* Core Data.swift in Sources */,
 				AF605A5C29CD9846007EB0FA /* ViewController.swift in Sources */,
 				AF605A5829CD9846007EB0FA /* AppDelegate.swift in Sources */,
