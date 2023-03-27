@@ -273,7 +273,7 @@
                                     <color key="baseForegroundColor" systemColor="systemPinkColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="cancelButton:" destination="8sY-b9-h0U" eventType="touchUpInside" id="Tp9-VU-SnH"/>
+                                    <action selector="cancleButton:" destination="8sY-b9-h0U" eventType="touchUpInside" id="2G8-eW-XuU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqY-AJ-kxk">
@@ -287,7 +287,7 @@
                                     <color key="baseForegroundColor" systemColor="systemPinkColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="createButton:" destination="8sY-b9-h0U" eventType="touchUpInside" id="16F-ny-eM8"/>
+                                    <action selector="createButton:" destination="8sY-b9-h0U" eventType="touchUpInside" id="3iM-gB-G3R"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZO0-HV-Ugg">
@@ -302,7 +302,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter contact name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O2d-Wy-IzJ">
                                 <rect key="frame" x="16" y="304" width="361" height="34"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90417729589999996" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.90417729589999996" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -368,7 +368,7 @@
                                 <rect key="frame" x="296" y="695" width="51" height="31"/>
                                 <color key="onTintColor" systemColor="systemPinkColor"/>
                                 <connections>
-                                    <action selector="switchButton:" destination="8sY-b9-h0U" eventType="valueChanged" id="XmA-CS-URm"/>
+                                    <action selector="switchButton:" destination="8sY-b9-h0U" eventType="valueChanged" id="fxo-pJ-0cY"/>
                                 </connections>
                             </switch>
                         </subviews>
@@ -417,11 +417,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="aKb-d6-yH5"/>
                     <connections>
-                        <outlet property="ageTextField" destination="So7-Ox-Esc" id="OID-xC-ptE"/>
-                        <outlet property="contactNameTextField" destination="O2d-Wy-IzJ" id="Sux-6j-tBk"/>
-                        <outlet property="contactNumberTextField" destination="gfB-ZF-fcV" id="JpT-hX-6FE"/>
-                        <outlet property="emailIDTextField" destination="BMQ-u8-wcc" id="oQA-4b-Yop"/>
-                        <outlet property="image" destination="Am4-fq-Zdl" id="agE-w5-RWR"/>
+                        <outlet property="ageTextField" destination="So7-Ox-Esc" id="fi2-8j-TB4"/>
+                        <outlet property="contactNameTextField" destination="O2d-Wy-IzJ" id="u3T-X8-3LQ"/>
+                        <outlet property="contactNumberTextField" destination="gfB-ZF-fcV" id="1So-Qj-4oa"/>
+                        <outlet property="emailIDTextField" destination="BMQ-u8-wcc" id="cF9-j1-146"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ANv-sd-aWQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
