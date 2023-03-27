@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import CoreData
 
 class ContactViewController: UIViewController {
 
+    @IBOutlet weak var contactTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         let titleTextAttribute = [NSAttributedString.Key.foregroundColor: UIColor.systemPink]
@@ -20,16 +22,33 @@ class ContactViewController: UIViewController {
             }
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+   
+    var userArry = NSMutableArray()
+    func fetchData() {
+        let appDelegates = UIApplication.shared.delegate as? AppDelegate
+        let context = appDelegates?.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let result = try context?.fetch(request)
+            print("resultData=" , result as Any)
+            for data in result as! [NSManagedObject] {
+                userArry.add(data)
+            }
+            print("userArry!!=" , self.userArry)
+        } catch {
+            print("failed")
+        }
+        
     }
-    */
+    
+    
+    @IBAction func addButtonClicked(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let createContactVC = storyboard.instantiateViewController(withIdentifier: "CreateContact") as! CreateContactsViewController
+        self.navigationController?.pushViewController(createContactVC, animated: true)
+    }
+    
 
 }
