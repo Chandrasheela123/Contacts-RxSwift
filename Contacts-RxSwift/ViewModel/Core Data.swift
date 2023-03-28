@@ -22,11 +22,11 @@ class AddContactDetails{
             
             
             
-            let detail = ContactDetails(context: self.detailContext)
+            let detail =  ContactDetailsEntity(context: self.detailContext) // ContactDetails(context: self.detailContext)
 
             detail.name = name
             detail.emailID = email
-            detail.phoneNumber = Int32(phoneNum) ?? 0
+            detail.phoneNumber = phoneNum
            
             do{
                 try self.detailContext.save()
@@ -43,8 +43,8 @@ class AddContactDetails{
     }
     
     
-    func getDetails() -> [ContactDetails]{
-        let fReq : NSFetchRequest<ContactDetails> = ContactDetails.fetchRequest()
+    func getDetails() -> [ContactDetailsEntity]{
+        let fReq : NSFetchRequest<ContactDetailsEntity> = ContactDetailsEntity.fetchRequest()
         do{
             let detailList = try detailContext.fetch(fReq)
             return detailList

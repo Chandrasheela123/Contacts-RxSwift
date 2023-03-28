@@ -351,7 +351,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter contact name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k13-Go-8Fu">
                                 <rect key="frame" x="16" y="316" width="361" height="34"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90417729589999996" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.90417729589999996" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -469,6 +469,7 @@
                         <outlet property="ageTextField" destination="ZWN-PQ-rkc" id="8yF-eD-Pma"/>
                         <outlet property="contactNameTextField" destination="k13-Go-8Fu" id="mVz-5V-ru9"/>
                         <outlet property="contactNumberTextField" destination="44q-tp-Hyz" id="E5g-7Q-ujO"/>
+                        <outlet property="createButton" destination="mgM-1u-KTe" id="avY-sK-Hes"/>
                         <outlet property="emailIDTextField" destination="12l-AL-hTr" id="DzU-fq-eTB"/>
                     </connections>
                 </viewController>
@@ -520,7 +521,7 @@
         <image name="image1" width="284" height="177"/>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="plus" catalog="system" width="32" height="32"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
