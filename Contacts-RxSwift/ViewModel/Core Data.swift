@@ -14,6 +14,7 @@ import UIKit
 
 class AddContactDetails{
     
+    static let sharedInstance = AddContactDetails()
     let detailContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     func saveDetails(name: String, email : String, phoneNum: String) -> Completable{
@@ -42,18 +43,36 @@ class AddContactDetails{
         
     }
     
+    func fetchDetails() -> Observable<[ContactDetailsEntity]>{
+        return Observable<[ContactDetailsEntity]>.create{ observer -> Disposable in
+            
+            let fReq : NSFetchRequest<ContactDetailsEntity> = ContactDetailsEntity.fetchRequest()
+            do{
+                let detailList = try self.detailContext.fetch(fReq)
+                observer.onNext(detailList)
+                //return detailList
+            }
+            catch{
+                print("Unable to load : \(error.localizedDescription)")
+            }
+            return Disposables.create {
+                
+            }
+        }
+            
+        }
     
-    func getDetails() -> [ContactDetailsEntity]{
-        let fReq : NSFetchRequest<ContactDetailsEntity> = ContactDetailsEntity.fetchRequest()
-        do{
-            let detailList = try detailContext.fetch(fReq)
-            return detailList
-        }
-        catch{
-            print("Unable to load : \(error.localizedDescription)")
-        }
-        return []
-    }
+//    func getDetails() -> [ContactDetailsEntity]{
+//        let fReq : NSFetchRequest<ContactDetailsEntity> = ContactDetailsEntity.fetchRequest()
+//        do{
+//            let detailList = try detailContext.fetch(fReq)
+//            return detailList
+//        }
+//        catch{
+//            print("Unable to load : \(error.localizedDescription)")
+//        }
+//        return []
+//    }
 
 
 }

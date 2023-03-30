@@ -20,6 +20,9 @@ class CreateContactsViewController: UIViewController {
     @IBOutlet weak var contactNumberTextField: UITextField!
     @IBOutlet weak var contactNameTextField: UITextField!
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Home Dir: \(NSHomeDirectory())")
@@ -48,23 +51,10 @@ class CreateContactsViewController: UIViewController {
     }
     
     @IBAction func createButton(_ sender: Any) {
-      
-//        let name = contactNameTextField.text ?? ""
-//              let email = emailIDTextField.text ?? ""
-//              let phoneNumber = contactNumberTextField.text ?? ""
-//
-//
-//        AddContactDetails().saveDetails(name: name , email: email, phoneNum: phoneNumber)
-//        print("Data saved")
-//
-//        let name = contactNameTextField.text ?? ""
-//        let email = emailIDTextField.text ?? ""
-//        let phoneNumber = contactNumberTextField.text ?? ""
-//
-//        let result = AddContactDetails().saveDetails(name: name, email: email, phoneNum: phoneNumber)
-//        print(result)
         
-        
+        let detailsVC = storyboard?.instantiateViewController(withIdentifier: "ContactViewController") as! ContactViewController
+        self.navigationController?.popViewController(animated: true)
+
     }
     @IBAction func cancleButton(_ sender: Any) {
     }

@@ -11,8 +11,15 @@ import CoreData
 class ContactViewController: UIViewController {
 
     @IBOutlet weak var contactTableView: UITableView!
+    
+    var detailList : [ContactDetailsEntity] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dataBinding()
+        
         let titleTextAttribute = [NSAttributedString.Key.foregroundColor: UIColor.systemPink]
         
         if let items = self.tabBarController?.tabBar.items {
@@ -20,6 +27,13 @@ class ContactViewController: UIViewController {
                 item.setTitleTextAttributes(titleTextAttribute, for: .normal)
             
             }
+        }
+    }
+    
+    func dataBinding(){
+        AddContactDetails.sharedInstance.fetchDetails().bind(to: contactTableView.rx.items(cellIdentifier: "ContactCell", cellType: ContactCell.self)){ [self] (_, list, cell) in
+            cell.contactName.text = list.name
+            cell.contactNumber.text = list.phoneNumber
         }
     }
    
