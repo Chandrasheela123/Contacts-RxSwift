@@ -14,14 +14,12 @@ class CreateContactsViewController: UIViewController {
     
     let disposeBag = DisposeBag()
 
+    @IBOutlet weak var favouriteButton: UISwitch!
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var emailIDTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var contactNumberTextField: UITextField!
     @IBOutlet weak var contactNameTextField: UITextField!
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +45,16 @@ class CreateContactsViewController: UIViewController {
             print("Error: \(err.localizedDescription)")
         }, onCompleted: {
             print("Data saved")
+        })
+        
+        favouriteButton.rx.isOn.flatMap{ data -> Completable in
+            
+            return AddContactDetails().saveFavourites(name: self.contactNameTextField.text!, email: self.emailIDTextField.text!, phoneNum: self.contactNumberTextField.text!)
+
+        }.subscribe(onError:{ err in
+            print("Error: \(err.localizedDescription)")
+        }, onCompleted: {
+            print("Data favorite saved")
         })
     }
     

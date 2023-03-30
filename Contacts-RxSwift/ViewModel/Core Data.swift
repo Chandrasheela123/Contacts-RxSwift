@@ -22,12 +22,13 @@ class AddContactDetails{
         return Completable.create{ _ in
             
             
-            
+      
             let detail =  ContactDetailsEntity(context: self.detailContext) // ContactDetails(context: self.detailContext)
 
             detail.name = name
             detail.emailID = email
             detail.phoneNumber = phoneNum
+            
            
             do{
                 try self.detailContext.save()
