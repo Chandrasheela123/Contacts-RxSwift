@@ -14,6 +14,7 @@ class CreateContactsViewController: UIViewController {
     
     let disposeBag = DisposeBag()
 
+    @IBOutlet weak var favouriteButton: UISwitch!
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var emailIDTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
@@ -45,40 +46,25 @@ class CreateContactsViewController: UIViewController {
         }, onCompleted: {
             print("Data saved")
         })
+        
+        favouriteButton.rx.isOn.flatMap{ data -> Completable in
+            
+            return AddContactDetails().saveFavourites(name: self.contactNameTextField.text!, email: self.emailIDTextField.text!, phoneNum: self.contactNumberTextField.text!)
+
+        }.subscribe(onError:{ err in
+            print("Error: \(err.localizedDescription)")
+        }, onCompleted: {
+            print("Data favorite saved")
+        })
     }
     
     @IBAction func createButton(_ sender: Any) {
-      
-//        let name = contactNameTextField.text ?? ""
-//              let email = emailIDTextField.text ?? ""
-//              let phoneNumber = contactNumberTextField.text ?? ""
-//
-//
-//        AddContactDetails().saveDetails(name: name , email: email, phoneNum: phoneNumber)
-//        print("Data saved")
-//
-//        let name = contactNameTextField.text ?? ""
-//        let email = emailIDTextField.text ?? ""
-//        let phoneNumber = contactNumberTextField.text ?? ""
-//
-//        let result = AddContactDetails().saveDetails(name: name, email: email, phoneNum: phoneNumber)
-//        print(result)
-        
+     
         
     }
     @IBAction func cancleButton(_ sender: Any) {
     }
     @IBAction func switchButton(_ sender: Any) {
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
 }

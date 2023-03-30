@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class FavouriteViewController: UIViewController {
 
@@ -16,7 +18,7 @@ class FavouriteViewController: UIViewController {
         
     }
    
-    
+   
 
     @IBAction func addButtonClicked(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

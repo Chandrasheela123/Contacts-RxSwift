@@ -18,32 +18,15 @@ class ContactViewController: UIViewController {
         if let items = self.tabBarController?.tabBar.items {
             for item in items {
                 item.setTitleTextAttributes(titleTextAttribute, for: .normal)
-            
+                
             }
         }
-    }
-   
-    var userArry = NSMutableArray()
-    func fetchData() {
-        let appDelegates = UIApplication.shared.delegate as? AppDelegate
-        let context = appDelegates?.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "")
-        request.returnsObjectsAsFaults = false
-        
-        do {
-            let result = try context?.fetch(request)
-            print("resultData=" , result as Any)
-            for data in result as! [NSManagedObject] {
-                userArry.add(data)
-            }
-            print("userArry!!=" , self.userArry)
-        } catch {
-            print("failed")
-        }
-        
+      
         
     }
     
+    
+
     
     @IBAction func addButtonClicked(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -53,3 +36,4 @@ class ContactViewController: UIViewController {
     
 
 }
+

@@ -171,6 +171,7 @@
                             <constraint firstItem="bPq-EI-4EN" firstAttribute="top" secondItem="BfL-Df-GqX" secondAttribute="top" constant="20" id="9Zy-DY-veM"/>
                             <constraint firstItem="iGh-44-8ay" firstAttribute="top" secondItem="7Va-1V-WWi" secondAttribute="bottom" constant="12" id="Aru-ds-84i"/>
                             <constraint firstItem="7Va-1V-WWi" firstAttribute="leading" secondItem="59k-zh-Zrj" secondAttribute="leading" id="Jd2-OL-5yc"/>
+                            <constraint firstItem="yUm-3V-PfO" firstAttribute="leading" secondItem="7Va-1V-WWi" secondAttribute="trailing" constant="-393" id="M2X-5l-Vd0"/>
                             <constraint firstItem="CXu-GR-JPb" firstAttribute="leading" secondItem="bPq-EI-4EN" secondAttribute="trailing" constant="125" id="Nuc-5w-ebQ"/>
                             <constraint firstItem="BfL-Df-GqX" firstAttribute="trailing" secondItem="7Va-1V-WWi" secondAttribute="trailing" id="P3D-GC-80H"/>
                             <constraint firstItem="BfL-Df-GqX" firstAttribute="trailing" secondItem="CXu-GR-JPb" secondAttribute="trailing" constant="35" id="VUp-gz-z5p"/>
@@ -303,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHz-Qj-8d9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2462" y="1373"/>
+            <point key="canvasLocation" x="2461.8320610687024" y="1372.5352112676057"/>
         </scene>
         <!--Create Contacts View Controller-->
         <scene sceneID="t02-Jj-iYg">
@@ -413,7 +414,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o02-7d-KDy">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="o02-7d-KDy">
                                 <rect key="frame" x="296" y="684" width="51" height="31"/>
                                 <color key="onTintColor" systemColor="systemPinkColor"/>
                                 <connections>
@@ -471,6 +472,7 @@
                         <outlet property="contactNumberTextField" destination="44q-tp-Hyz" id="E5g-7Q-ujO"/>
                         <outlet property="createButton" destination="mgM-1u-KTe" id="avY-sK-Hes"/>
                         <outlet property="emailIDTextField" destination="12l-AL-hTr" id="DzU-fq-eTB"/>
+                        <outlet property="favouriteButton" destination="o02-7d-KDy" id="CfP-O6-tYb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOT-9F-a1t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
