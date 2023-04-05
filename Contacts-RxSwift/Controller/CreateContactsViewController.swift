@@ -57,6 +57,10 @@ class CreateContactsViewController: UIViewController {
         }, onCompleted: {
             print("Data favorite saved")
         })
+        
+        addImageButton.rx.tap.subscribe(onNext: { [weak self] in
+            GalleryManager.galleryInstance.showGallery()
+        })
     }
     
     @IBAction func createButton(_ sender: Any) {
