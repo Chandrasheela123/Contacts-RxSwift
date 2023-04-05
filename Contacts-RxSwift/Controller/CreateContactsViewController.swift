@@ -14,6 +14,7 @@ class CreateContactsViewController: UIViewController {
     
     let disposeBag = DisposeBag()
 
+    @IBOutlet weak var addImageButton: UIButton!
     @IBOutlet weak var favouriteButton: UISwitch!
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var emailIDTextField: UITextField!

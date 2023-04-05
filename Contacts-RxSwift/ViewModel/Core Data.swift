@@ -63,6 +63,51 @@ class AddContactDetails{
             
         }
     
+    func saveFavourites(name: String, email : String, phoneNum: String) -> Completable{
+        
+        return Completable.create{ _ in
+            
+            
+      
+            let favourite =  Favourites(context: self.detailContext) // ContactDetails(context: self.detailContext)
+
+            favourite.name = name
+            favourite.email = email
+            favourite.phone = phoneNum
+            
+           
+            do{
+                try self.detailContext.save()
+                print("favourites added")
+            }
+            catch{
+                print("Unable to add details: \(error.localizedDescription)")
+                self.detailContext.delete(favourite)
+            }
+            
+            return Disposables.create()
+        }
+        
+    }
+    
+    func fetchFavourites() -> Observable<[Favourites]>{
+        return Observable<[Favourites]>.create{ observer -> Disposable in
+            
+            let fReq : NSFetchRequest<Favourites> = Favourites.fetchRequest()
+            do{
+                let favList = try self.detailContext.fetch(fReq)
+                observer.onNext(favList)
+                //return detailList
+            }
+            catch{
+                print("Unable to load : \(error.localizedDescription)")
+            }
+            return Disposables.create {
+                
+            }
+        }
+            
+        }
 //    func getDetails() -> [ContactDetailsEntity]{
 //        let fReq : NSFetchRequest<ContactDetailsEntity> = ContactDetailsEntity.fetchRequest()
 //        do{

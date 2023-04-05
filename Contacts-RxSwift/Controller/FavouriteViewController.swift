@@ -14,11 +14,20 @@ class FavouriteViewController: UIViewController {
     @IBOutlet weak var favouriteTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+dataBinding()
         
     }
    
-   
+    func dataBinding(){
+        AddContactDetails.sharedInstance.fetchFavourites().bind(to: favouriteTableView.rx.items(cellIdentifier: "FavouritesCell", cellType: FavouritesCell.self)){ [self] (_, list, cell) in
+            cell.favouriteName.text = list.name
+            cell.favouriteNumber.text = list.phone
+            cell.favouriteEmail.text = list.email
+            
+            
+        }
+        
+    }
 
     @IBAction func addButtonClicked(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
