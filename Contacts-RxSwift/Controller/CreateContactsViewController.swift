@@ -10,10 +10,11 @@ import RxSwift
 import RxCocoa
 import CoreData
 
-class CreateContactsViewController: UIViewController {
+class CreateContactsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let disposeBag = DisposeBag()
 
+    @IBOutlet weak var contactImage: UIImageView!
     @IBOutlet weak var addImageButton: UIButton!
     @IBOutlet weak var favouriteButton: UISwitch!
     @IBOutlet weak var createButton: UIButton!
@@ -26,12 +27,12 @@ class CreateContactsViewController: UIViewController {
         super.viewDidLoad()
         print("Home Dir: \(NSHomeDirectory())")
         bindDataToTextFields()
-
+   favSave()
         // Do any additional setup after loading the view.
     }
    
     func bindDataToTextFields() {
-       
+        
         contactNameTextField.rx.text.bind(to: ContactDetailsViewModel.contactDetailsInstance.nameSubject).disposed(by: disposeBag)
         
         contactNumberTextField.rx.text.bind(to: ContactDetailsViewModel.contactDetailsInstance.phoneNumberSubject).disposed(by: disposeBag)
@@ -39,29 +40,32 @@ class CreateContactsViewController: UIViewController {
         
         
         createButton.rx.tap.flatMap{ data -> Completable in
-
-            return AddContactDetails().saveDetails(name: self.contactNameTextField.text!, email: self.emailIDTextField.text!, phoneNum: self.contactNumberTextField.text!)
-
+            
+            return AddContactDetails().saveDetails(name: self.contactNameTextField.text!, email: self.emailIDTextField.text!, phoneNum: self.contactNumberTextField.text!, image: self.contactImage.image!)
+            
         }.subscribe(onError:{ err in
             print("Error: \(err.localizedDescription)")
         }, onCompleted: {
             print("Data saved")
         })
-        
-        favouriteButton.rx.isOn.flatMap{ data -> Completable in
-            
-            return AddContactDetails().saveFavourites(name: self.contactNameTextField.text!, email: self.emailIDTextField.text!, phoneNum: self.contactNumberTextField.text!)
-
-        }.subscribe(onError:{ err in
-            print("Error: \(err.localizedDescription)")
-        }, onCompleted: {
-            print("Data favorite saved")
-        })
-        
-        addImageButton.rx.tap.subscribe(onNext: { [weak self] in
-            GalleryManager.galleryInstance.showGallery()
-        })
     }
+        func favSave ()
+        {
+             favouriteButton.rx.isOn.flatMap{ data -> Completable in
+                
+                return AddContactDetails().saveFavourites(name: self.contactNameTextField.text!, email: self.emailIDTextField.text!, phoneNum: self.contactNumberTextField.text!)
+
+            }.subscribe(onError:{ err in
+                print("Error: \(err.localizedDescription)")
+            }, onCompleted: {
+                print("Data favorite saved")
+            })
+        }
+       //MARK: CHANGE
+//        addImageButton.rx.tap.subscribe(onNext: { [weak self] in
+//            GalleryManager.galleryInstance.showGallery()
+//        })
+    
     
     @IBAction func createButton(_ sender: Any) {
         
@@ -74,14 +78,23 @@ class CreateContactsViewController: UIViewController {
     @IBAction func switchButton(_ sender: Any) {
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func saveImageButton(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true)
+        
     }
-    */
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+        if let pikedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            contactImage.image = pikedImage
+            AddContactDetails.sharedInstance.selectedImage = pikedImage
+            
+          //  selectedImage = pikedImage
+        }
+        dismiss(animated: true, completion: nil)
+    }
 
 }

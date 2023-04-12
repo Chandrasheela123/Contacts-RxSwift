@@ -23,7 +23,7 @@ dataBinding()
             cell.favouriteName.text = list.name
             cell.favouriteNumber.text = list.phone
             cell.favouriteEmail.text = list.email
-            
+          //  cell.favouriteImage.image = list.favImage as? UIImage
             
         }
         

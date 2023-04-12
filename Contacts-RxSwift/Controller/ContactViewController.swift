@@ -34,6 +34,7 @@ class ContactViewController: UIViewController {
         AddContactDetails.sharedInstance.fetchDetails().bind(to: contactTableView.rx.items(cellIdentifier: "ContactCell", cellType: ContactCell.self)){ [self] (_, list, cell) in
             cell.contactName.text = list.name
             cell.contactNumber.text = list.phoneNumber
+            cell.contactImage.image = list.savedImage as? UIImage
         }
     }
    

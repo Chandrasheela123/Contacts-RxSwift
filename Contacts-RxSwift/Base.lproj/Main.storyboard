@@ -370,7 +370,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="dFq-EO-15l">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dFq-EO-15l">
                                 <rect key="frame" x="108" y="129" width="177" height="138"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="177" id="D63-jy-u2W"/>
@@ -425,6 +425,9 @@
                                 <rect key="frame" x="108" y="129" width="177" height="138"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="saveImageButton:" destination="lAF-0L-dlp" eventType="touchUpInside" id="WjE-uS-LSI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qrd-MY-lOl"/>
@@ -478,6 +481,7 @@
                     <connections>
                         <outlet property="addImageButton" destination="3R1-qa-18u" id="E75-mU-I6G"/>
                         <outlet property="ageTextField" destination="ZWN-PQ-rkc" id="8yF-eD-Pma"/>
+                        <outlet property="contactImage" destination="dFq-EO-15l" id="t0K-DI-VWR"/>
                         <outlet property="contactNameTextField" destination="k13-Go-8Fu" id="mVz-5V-ru9"/>
                         <outlet property="contactNumberTextField" destination="44q-tp-Hyz" id="E5g-7Q-ujO"/>
                         <outlet property="createButton" destination="mgM-1u-KTe" id="avY-sK-Hes"/>
@@ -530,7 +534,6 @@
     </scenes>
     <resources>
         <image name="heart.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="image1" width="284" height="177"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>

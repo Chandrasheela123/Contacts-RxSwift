@@ -15,21 +15,27 @@ import UIKit
 class AddContactDetails{
     
     static let sharedInstance = AddContactDetails()
+   
+    var selectedImage: UIImage?
+ 
     let detailContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
-    func saveDetails(name: String, email : String, phoneNum: String) -> Completable{
+   
+    func saveDetails(name: String, email : String, phoneNum: String, image: UIImage) -> Completable{
         
-        return Completable.create{ _ in
-            
-            
+        return Completable.create{ completable in
+            guard let imageData = image.jpegData(compressionQuality: 1.0), let pngData = image.pngData() else {
+                completable(.error(NSError(domain: "com.example.app", code: -1, userInfo: [NSLocalizedDescriptionKey: "fail to get img"])))
+                return Disposables.create()
+            }
+
       
-            let detail =  ContactDetailsEntity(context: self.detailContext) // ContactDetails(context: self.detailContext)
+            let detail =  ContactDetailsEntity(context: self.detailContext)
 
             detail.name = name
             detail.emailID = email
             detail.phoneNumber = phoneNum
-            
-           
+            detail.savedImage = pngData
+        
             do{
                 try self.detailContext.save()
                 print("Details added")
@@ -65,8 +71,11 @@ class AddContactDetails{
     
     func saveFavourites(name: String, email : String, phoneNum: String) -> Completable{
         
-        return Completable.create{ _ in
-            
+        return Completable.create{ completable in
+//            guard let imageData = image.jpegData(compressionQuality: 1.0), let pngData = image.pngData() else {
+//                completable(.error(NSError(domain: "com.example.app", code: -1, userInfo: [NSLocalizedDescriptionKey: "fail to get img"])))
+//                return Disposables.create()
+//            }
             
       
             let favourite =  Favourites(context: self.detailContext) // ContactDetails(context: self.detailContext)
@@ -74,7 +83,7 @@ class AddContactDetails{
             favourite.name = name
             favourite.email = email
             favourite.phone = phoneNum
-            
+        //    favourite.favImage = pngData
            
             do{
                 try self.detailContext.save()
@@ -108,17 +117,6 @@ class AddContactDetails{
         }
             
         }
-//    func getDetails() -> [ContactDetailsEntity]{
-//        let fReq : NSFetchRequest<ContactDetailsEntity> = ContactDetailsEntity.fetchRequest()
-//        do{
-//            let detailList = try detailContext.fetch(fReq)
-//            return detailList
-//        }
-//        catch{
-//            print("Unable to load : \(error.localizedDescription)")
-//        }
-//        return []
-//    }
 
 
 }
