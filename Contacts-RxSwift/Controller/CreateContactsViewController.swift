@@ -27,8 +27,10 @@ class CreateContactsViewController: UIViewController, UIImagePickerControllerDel
         super.viewDidLoad()
         print("Home Dir: \(NSHomeDirectory())")
         bindDataToTextFields()
-   favSave()
-        // Do any additional setup after loading the view.
+        if favouriteButton.isOn {
+            favSave()
+        }
+
     }
    
     func bindDataToTextFields() {
@@ -49,10 +51,10 @@ class CreateContactsViewController: UIViewController, UIImagePickerControllerDel
             print("Data saved")
         })
     }
-        func favSave ()
-        {
-             favouriteButton.rx.isOn.flatMap{ data -> Completable in
-                
+        func favSave () {
+
+            favouriteButton.rx.isOn.flatMap{ data -> Completable in
+
                 return AddContactDetails().saveFavourites(name: self.contactNameTextField.text!, email: self.emailIDTextField.text!, phoneNum: self.contactNumberTextField.text!)
 
             }.subscribe(onError:{ err in
@@ -61,10 +63,7 @@ class CreateContactsViewController: UIViewController, UIImagePickerControllerDel
                 print("Data favorite saved")
             })
         }
-       //MARK: CHANGE
-//        addImageButton.rx.tap.subscribe(onNext: { [weak self] in
-//            GalleryManager.galleryInstance.showGallery()
-//        })
+       
     
     
     @IBAction func createButton(_ sender: Any) {
@@ -76,6 +75,7 @@ class CreateContactsViewController: UIViewController, UIImagePickerControllerDel
     @IBAction func cancleButton(_ sender: Any) {
     }
     @IBAction func switchButton(_ sender: Any) {
+        favSave()
     }
     
     @IBAction func saveImageButton(_ sender: Any) {
